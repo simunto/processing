@@ -805,9 +805,10 @@ public class PSurfaceAWT extends PSurfaceNone {
     int contentW = Math.max(sketchWidth, MIN_WINDOW_WIDTH);
     int contentH = Math.max(sketchHeight, MIN_WINDOW_HEIGHT);
 
-    canvas.setBounds((contentW - sketchWidth)/2,
-                     (contentH - sketchHeight)/2,
-                     sketchWidth, sketchHeight);
+    canvas.setSize(sketchWidth, sketchHeight);
+//    canvas.setBounds((contentW - sketchWidth)/2,
+//                     (contentH - sketchHeight)/2,
+//                     sketchWidth, sketchHeight);
   }
 
 
