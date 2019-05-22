@@ -24,11 +24,6 @@ package processing.core;
 
 import java.awt.Image;
 
-import com.apple.eawt.AppEvent.QuitEvent;
-import com.apple.eawt.Application;
-import com.apple.eawt.QuitHandler;
-import com.apple.eawt.QuitResponse;
-
 
 /**
  * Deal with issues related to thinking differently.
@@ -44,7 +39,7 @@ import com.apple.eawt.QuitResponse;
 public class ThinkDifferent {
 
   // http://developer.apple.com/documentation/Java/Reference/1.4.2/appledoc/api/com/apple/eawt/Application.html
-  private static Application application;
+//  private static Application application;
 
   // True if user has tried to quit once. Prevents us from canceling the quit
   // call if the sketch is held up for some reason, like an exception that's
@@ -53,29 +48,29 @@ public class ThinkDifferent {
 
 
   static public void init(final PApplet sketch) {
-    if (application == null) {
-      application = Application.getApplication();
-    }
-
-    application.setQuitHandler(new QuitHandler() {
-      public void handleQuitRequestWith(QuitEvent event, QuitResponse response) {
-        sketch.exit();
-        if (PApplet.uncaughtThrowable == null &&  // no known crash
-            !attemptedQuit) {  // haven't tried yet
-          response.cancelQuit();  // tell OS X we'll handle this
-          attemptedQuit = true;
-        } else {
-          response.performQuit();  // just force it this time
-        }
-      }
-    });
+//    if (application == null) {
+//      application = Application.getApplication();
+//    }
+//
+//    application.setQuitHandler(new QuitHandler() {
+//      public void handleQuitRequestWith(QuitEvent event, QuitResponse response) {
+//        sketch.exit();
+//        if (PApplet.uncaughtThrowable == null &&  // no known crash
+//            !attemptedQuit) {  // haven't tried yet
+//          response.cancelQuit();  // tell OS X we'll handle this
+//          attemptedQuit = true;
+//        } else {
+//          response.performQuit();  // just force it this time
+//        }
+//      }
+//    });
   }
 
   static public void cleanup() {
-    if (application == null) {
-      application = Application.getApplication();
-    }
-    application.setQuitHandler(null);
+//    if (application == null) {
+//      application = Application.getApplication();
+//    }
+//    application.setQuitHandler(null);
   }
 
   // Called via reflection from PSurfaceAWT and others
@@ -85,7 +80,7 @@ public class ThinkDifferent {
 //    System.out.println("current dock icon image is " + current);
 //    System.out.println("changing to " + image);
 
-    application.setDockIconImage(image);
+//    application.setDockIconImage(image);
   }
 
 
