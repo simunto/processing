@@ -1544,8 +1544,12 @@ public class PSurfaceAWT extends PSurfaceNone {
     return new AnimationThread() {
       @Override
       public void callDraw() {
-        sketch.handleDraw();
-        render();
+        try {
+          sketch.handleDraw();
+          render();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     };
   }
