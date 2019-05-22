@@ -586,23 +586,23 @@ public class PSurfaceAWT extends PSurfaceNone {
 
   @Override
   public void setIcon(PImage image) {
-    Image awtImage = (Image) image.getNative();
-
-    if (PApplet.platform != PConstants.MACOSX) {
-      frame.setIconImage(awtImage);
-
-    } else {
-      try {
-        final String td = "processing.core.ThinkDifferent";
-        Class<?> thinkDifferent =
-          Thread.currentThread().getContextClassLoader().loadClass(td);
-        Method method =
-          thinkDifferent.getMethod("setIconImage", new Class[] { java.awt.Image.class });
-        method.invoke(null, new Object[] { awtImage });
-      } catch (Exception e) {
-        e.printStackTrace();  // That's unfortunate
-      }
-    }
+//    Image awtImage = (Image) image.getNative();
+//
+//    if (PApplet.platform != PConstants.MACOSX) {
+//      frame.setIconImage(awtImage);
+//
+//    } else {
+//      try {
+//        final String td = "processing.core.ThinkDifferent";
+//        Class<?> thinkDifferent =
+//          Thread.currentThread().getContextClassLoader().loadClass(td);
+//        Method method =
+//          thinkDifferent.getMethod("setIconImage", new Class[] { java.awt.Image.class });
+//        method.invoke(null, new Object[] { awtImage });
+//      } catch (Exception e) {
+//        e.printStackTrace();  // That's unfortunate
+//      }
+//    }
   }
 
 
